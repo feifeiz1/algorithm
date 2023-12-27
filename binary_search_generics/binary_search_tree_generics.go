@@ -1,4 +1,4 @@
-package main
+package binary_search_tree
 
 import (
 	"cmp"
@@ -194,8 +194,4 @@ func remove[K cmp.Ordered, V fmt.Stringer](root *node[K, V], k K) *node[K, V] {
 	root.key, root.val = rightSmallNode.key, rightSmallNode.val
 	root.right = remove(root.right, root.key)
 	return root
-}
-
-func main() {
-
 }
