@@ -42,7 +42,8 @@ func (s *Stack[T]) Pop() (val T) {
 		return
 	}
 	val = s.data[s.size-1]
-	s.data = s.data[:s.size-1]
+	var empty T
+	s.data[s.size-1] = empty
 	s.size--
 	return
 }
@@ -76,7 +77,7 @@ func (s *Stack[T]) Empty() bool {
 
 func (s *Stack[T]) expand() {
 	newCap := s.cap * expandFactor
-	newData := make([]T, 0, newCap)
+	newData := make([]T, newCap)
 	copy(newData, s.data)
 	s.cap = newCap
 	s.data = newData
