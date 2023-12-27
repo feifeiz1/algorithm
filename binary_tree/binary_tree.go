@@ -1,5 +1,7 @@
 package binary_tree
 
+import "github.com/shao1f/algorithm/stack"
+
 type node struct {
 	val   string
 	left  *node
@@ -28,19 +30,18 @@ func (bt *BinaryTree) PreOrderIter(f func(string2 string)) {
 		return
 	}
 	// 模拟栈
-	var st []*node
+	st := stack.NewStack[*node](10)
 	// 先将根节点入栈
-	st = append(st, bt.root)
-	for len(st) != 0 {
-		n := st[len(st)-1]
-		st = st[:len(st)-1]
+	st.Push(bt.root)
+	for !st.Empty() {
+		n := st.Pop()
 		f(n.val)
 		// 先入栈右子树，因为先入栈的后出栈
 		if n.right != nil {
-			st = append(st, n.right)
+			st.Push(n.right)
 		}
 		if n.left != nil {
-			st = append(st, n.left)
+			st.Push(n.left)
 		}
 	}
 }
@@ -62,15 +63,14 @@ func (bt *BinaryTree) InOrderIter(f func(string)) {
 	if bt.root == nil {
 		return
 	}
-	var st []*node
+	st := stack.NewStack[*node](10)
 	r := bt.root
-	for r != nil || len(st) != 0 {
+	for r != nil || !st.Empty() {
 		for r != nil {
-			st = append(st, r)
+			st.Push(r)
 			r = r.left
 		}
-		top := st[len(st)-1]
-		st = st[:len(st)-1]
+		top := st.Pop()
 		f(top.val)
 		r = top.right
 	}
@@ -93,18 +93,17 @@ func (bt *BinaryTree) PostOrderIter(f func(string)) {
 	if bt.root == nil {
 		return
 	}
-	var st []*node
+	st := stack.NewStack[*node](10)
 	var output []string
-	st = append(st, bt.root)
-	for len(st) != 0 {
-		top := st[len(st)-1]
-		st = st[:len(st)-1]
+	st.Push(bt.root)
+	for !st.Empty() {
+		top := st.Pop()
 		output = append(output, top.val)
 		if top.left != nil {
-			st = append(st, top.left)
+			st.Push(top.left)
 		}
 		if top.right != nil {
-			st = append(st, top.right)
+			st.Push(top.right)
 		}
 	}
 	for i := len(output) - 1; i >= 0; i-- {

@@ -60,6 +60,7 @@ func TestBinaryTree_PreOrderTraverse(t *testing.T) {
 	bt.PreOrderTraverse(func(s string) {
 		fmt.Printf("%v ", s)
 	})
+	fmt.Println()
 }
 
 func TestBinaryTree_InOrderTraverse(t *testing.T) {
@@ -67,6 +68,7 @@ func TestBinaryTree_InOrderTraverse(t *testing.T) {
 	bt.InOrderTraverse(func(s string) {
 		fmt.Printf("%v ", s)
 	})
+	fmt.Println()
 }
 
 func TestBinaryTree_PostOrderTraverse(t *testing.T) {
@@ -74,6 +76,7 @@ func TestBinaryTree_PostOrderTraverse(t *testing.T) {
 	bt.PostOrderTraverse(func(s string) {
 		fmt.Printf("%v ", s)
 	})
+	fmt.Println()
 }
 
 func TestBinaryTree_PreOrderIter(t *testing.T) {
@@ -92,6 +95,7 @@ func TestBinaryTree_PreOrderIter(t *testing.T) {
 	if !slices.Equal(res, res1) {
 		t.Fatal("preorder traverse is not equal iter")
 	}
+	fmt.Println()
 }
 
 func TestBinaryTree_InOrderIter(t *testing.T) {
@@ -110,6 +114,7 @@ func TestBinaryTree_InOrderIter(t *testing.T) {
 	if !slices.Equal(res, res1) {
 		t.Fatal("inorder traverse is not equal iter")
 	}
+	fmt.Println()
 }
 
 func TestBinaryTree_PostOrderIter(t *testing.T) {
@@ -128,4 +133,5 @@ func TestBinaryTree_PostOrderIter(t *testing.T) {
 	if !slices.Equal(res, res1) {
 		t.Fatal("postorder traverse is not equal iter")
 	}
+	fmt.Println()
 }
