@@ -79,12 +79,13 @@ func (l *List[T]) PushHead(x T) {
 	l.size++
 }
 
-func (l *List[T]) PopBack() {
+func (l *List[T]) PopBack() (val T) {
 	l.Lock()
 	defer l.Unlock()
 	if l.tail == nil {
 		return
 	}
+	val = l.tail.val
 	if l.root == l.tail {
 		l.root, l.tail = nil, nil
 		l.size--
@@ -96,14 +97,16 @@ func (l *List[T]) PopBack() {
 	cur.next = nil
 	l.tail = cur
 	l.size--
+	return
 }
 
-func (l *List[T]) PopHead() {
+func (l *List[T]) PopHead() (val T) {
 	l.Lock()
 	defer l.Unlock()
 	if l.root == nil {
 		return
 	}
+	val = l.root.val
 	if l.root == l.tail {
 		l.root, l.tail = nil, nil
 		l.size--
@@ -111,6 +114,7 @@ func (l *List[T]) PopHead() {
 	}
 	l.root = l.root.next
 	l.size--
+	return
 }
 
 func (l *List[T]) Find(x T) bool {

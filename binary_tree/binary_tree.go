@@ -111,3 +111,16 @@ func (bt *BinaryTree) PostOrderIter(f func(string)) {
 	}
 
 }
+
+// LevelOrder 层序
+func (bt *BinaryTree) LevelOrder(f func(string)) {
+	if bt.root == nil {
+		return
+	}
+	st := stack.NewStack[*node](10)
+	var res []string
+	for !st.Empty() {
+		top := st.Pop()
+		res = append(res, top.val)
+	}
+}
