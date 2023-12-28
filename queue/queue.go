@@ -15,6 +15,10 @@ func NewQueue[T cmp.Ordered]() *Queue[T] {
 	}
 }
 
+func (q *Queue[T]) PrintQueue() {
+	q.data.PrintList(nil)
+}
+
 func (q *Queue[T]) LPush(x T) {
 	if q.data == nil {
 		q.data = list.NewList[T]()
@@ -26,5 +30,5 @@ func (q *Queue[T]) LPop() (val T) {
 	if q.data == nil {
 		return val
 	}
-	return q.data.Find()
+	return q.data.PopHead()
 }
