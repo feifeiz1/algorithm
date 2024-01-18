@@ -1,6 +1,6 @@
 package binary_tree
 
-import "github.com/shao1f/algorithm/stack"
+import "github.com/feifeiz1/algorithm/stack"
 
 type node struct {
 	val   string

@@ -2,7 +2,7 @@ package queue
 
 import (
 	"cmp"
-	"github.com/shao1f/algorithm/list"
+	"github.com/feifeiz1/algorithm/list"
 )
 
 type Queue[T cmp.Ordered] struct {
