@@ -1,3 +1,3 @@
-module github.com/shao1f/algorithm/stack
+module github.com/feifeiz1/algorithm/stack
 
 go 1.18

@@ -1,3 +1,3 @@
-module github.com/shao1f/algorithm/binary_search_tree
+module github.com/feifeiz1/algorithm/binary_search_tree
 
 go 1.18

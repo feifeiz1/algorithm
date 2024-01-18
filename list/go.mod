@@ -1,3 +1,3 @@
-module github.com/shao1f/algorithm/list
+module github.com/feifeiz1/algorithm/list
 
 go 1.18
