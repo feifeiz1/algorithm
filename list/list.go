@@ -1,7 +1,6 @@
 package list
 
 import (
-	"cmp"
 	"fmt"
 	"sync"
 )
@@ -18,7 +17,7 @@ type List[T comparable] struct {
 	size int
 }
 
-func NewList[T cmp.Ordered]() *List[T] {
+func NewList[T comparable]() *List[T] {
 	return &List[T]{
 		root: nil,
 		tail: nil,
