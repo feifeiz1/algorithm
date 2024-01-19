@@ -1,8 +1,6 @@
 package queue
 
-import (
-	"github.com/feifeiz1/algorithm/list"
-)
+import "github.com/feifeiz1/algorithm/list"
 
 type Queue[T comparable] struct {
 	data *list.List[T]
@@ -25,9 +23,16 @@ func (q *Queue[T]) LPush(x T) {
 	q.data.PushHead(x)
 }
 
-func (q *Queue[T]) LPop() (val T) {
+func (q *Queue[T]) RPop() (val T) {
 	if q.data == nil {
 		return val
 	}
-	return q.data.PopHead()
+	return q.data.PopBack()
+}
+
+func (q *Queue[T]) Empty() bool {
+	if q.data == nil {
+		return true
+	}
+	return q.data.Len() == 0
 }

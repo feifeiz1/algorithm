@@ -120,10 +120,16 @@ func (bt *BinaryTree) LevelOrder(f func(string)) {
 	if bt.root == nil {
 		return
 	}
-	l := queue.NewQueue()
-	var res []string
-	for !st.Empty() {
-		top := st.Pop()
-		res = append(res, top.val)
+	q := queue.NewQueue[*node]()
+	q.LPush(bt.root)
+	for !q.Empty() {
+		top := q.RPop()
+		f(top.val)
+		if top.left != nil {
+			q.LPush(top.left)
+		}
+		if top.right != nil {
+			q.LPush(top.right)
+		}
 	}
 }

@@ -135,3 +135,11 @@ func TestBinaryTree_PostOrderIter(t *testing.T) {
 	}
 	fmt.Println()
 }
+
+func TestBinaryTree_LevelOrder(t *testing.T) {
+	bt := genBTree()
+	bt.LevelOrder(func(s string) {
+		fmt.Printf("%v ", s)
+	})
+	fmt.Println()
+}
