@@ -1,15 +1,14 @@
 package queue
 
 import (
-	"cmp"
 	"github.com/feifeiz1/algorithm/list"
 )
 
-type Queue[T cmp.Ordered] struct {
+type Queue[T comparable] struct {
 	data *list.List[T]
 }
 
-func NewQueue[T cmp.Ordered]() *Queue[T] {
+func NewQueue[T comparable]() *Queue[T] {
 	return &Queue[T]{
 		data: list.NewList[T](),
 	}

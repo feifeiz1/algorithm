@@ -13,11 +13,14 @@ type node[K cmp.Ordered, V fmt.Stringer] struct {
 	right *node[K, V]
 }
 
+// BinarySearchTree 泛型实现的二叉搜索树，保存的数据需要满足K，V的约束
+// K: 需要可比较 V：需要实现Stringer接口
 type BinarySearchTree[K cmp.Ordered, V fmt.Stringer] struct {
 	sync.RWMutex
 	root *node[K, V]
 }
 
+// PrintTree 打印二叉搜索树
 func (bst *BinarySearchTree[K, V]) PrintTree() {
 	bst.RLock()
 	defer bst.RUnlock()
@@ -41,6 +44,7 @@ func stringify[K cmp.Ordered, V fmt.Stringer](n *node[K, V], level int) {
 	}
 }
 
+// Insert 插入数据
 func (bst *BinarySearchTree[K, V]) Insert(k K, v V) {
 	bst.Lock()
 	defer bst.Unlock()
@@ -71,6 +75,7 @@ func insert[K cmp.Ordered, V fmt.Stringer](root *node[K, V], n *node[K, V]) {
 	}
 }
 
+// PreOrderTraverse 前序遍历
 func (bst *BinarySearchTree[K, V]) PreOrderTraverse(f func(V)) {
 	bst.RLock()
 	defer bst.RUnlock()
@@ -86,6 +91,7 @@ func preOrderTraverse[K cmp.Ordered, V fmt.Stringer](root *node[K, V], f func(V)
 	}
 }
 
+// InOrderTraverse 中序遍历
 func (bst *BinarySearchTree[K, V]) InOrderTraverse(f func(V)) {
 	bst.RLock()
 	defer bst.RUnlock()
@@ -100,6 +106,7 @@ func inOrderTraverse[K cmp.Ordered, V fmt.Stringer](root *node[K, V], f func(V))
 	}
 }
 
+// PostOrderTraverse 后序遍历
 func (bst *BinarySearchTree[K, V]) PostOrderTraverse(f func(V)) {
 	bst.RLock()
 	defer bst.RUnlock()
@@ -114,6 +121,7 @@ func postOrderTraverse[K cmp.Ordered, V fmt.Stringer](root *node[K, V], f func(V
 	}
 }
 
+// Min 最小值
 func (bst *BinarySearchTree[K, V]) Min() (val V) {
 	bst.RLock()
 	defer bst.RUnlock()
@@ -127,6 +135,7 @@ func (bst *BinarySearchTree[K, V]) Min() (val V) {
 	return cur.val
 }
 
+// Max 最大值
 func (bst *BinarySearchTree[K, V]) Max() (val V) {
 	bst.RLock()
 	defer bst.RUnlock()
@@ -140,6 +149,7 @@ func (bst *BinarySearchTree[K, V]) Max() (val V) {
 	return cur.val
 }
 
+// Search 查找
 func (bst *BinarySearchTree[K, V]) Search(k K) bool {
 	bst.RLock()
 	defer bst.RUnlock()
@@ -159,6 +169,7 @@ func search[K cmp.Ordered, V fmt.Stringer](root *node[K, V], k K) bool {
 	return true
 }
 
+// Remove 删除
 func (bst *BinarySearchTree[K, V]) Remove(k K) {
 	bst.Lock()
 	defer bst.Unlock()

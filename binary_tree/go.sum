@@ -1,2 +1,6 @@
+github.com/feifeiz1/algorithm/list v0.0.0-20240118030928-9cc2d5f3bb88 h1:i9WJqRE0gS4Uct0IUywgTt1uvpfaOzBRWxCorqt2AW0=
+github.com/feifeiz1/algorithm/list v0.0.0-20240118030928-9cc2d5f3bb88/go.mod h1:1718IwrXoMEuBh/6JFNqr5BAeqp7Vg08osbB67OR65o=
+github.com/feifeiz1/algorithm/queue v0.0.0-20240118030928-9cc2d5f3bb88 h1:nKkkczsL1FlxNIKMTriyh/U84KFAM8BWxCEOGMP5BNM=
+github.com/feifeiz1/algorithm/queue v0.0.0-20240118030928-9cc2d5f3bb88/go.mod h1:sLLf5tOamU+PEMRgfL65CqdvYnZ0U7jZpVlOrG6PTK4=
 github.com/feifeiz1/algorithm/stack v0.0.0-20240118030710-f05f2daad58c h1:yApjUc2WDp/4SZIUIiOFRSeveDxMIrdyC8QN2s36vrQ=
 github.com/feifeiz1/algorithm/stack v0.0.0-20240118030710-f05f2daad58c/go.mod h1:tNy1D2C2YgCo6MMMoXvHK/tsgi7wDA2sUZNNdOa6wnE=

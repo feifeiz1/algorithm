@@ -1,6 +1,9 @@
 package binary_tree
 
-import "github.com/feifeiz1/algorithm/stack"
+import (
+	"github.com/feifeiz1/algorithm/queue"
+	"github.com/feifeiz1/algorithm/stack"
+)
 
 type node struct {
 	val   string
@@ -117,7 +120,7 @@ func (bt *BinaryTree) LevelOrder(f func(string)) {
 	if bt.root == nil {
 		return
 	}
-	st := stack.NewStack[*node](10)
+	l := queue.NewQueue()
 	var res []string
 	for !st.Empty() {
 		top := st.Pop()

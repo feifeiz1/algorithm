@@ -6,12 +6,12 @@ import (
 	"sync"
 )
 
-type node[T cmp.Ordered] struct {
+type node[T comparable] struct {
 	val  T
 	next *node[T]
 }
 
-type List[T cmp.Ordered] struct {
+type List[T comparable] struct {
 	sync.RWMutex
 	root *node[T]
 	tail *node[T]
